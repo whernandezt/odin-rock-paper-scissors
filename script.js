@@ -35,6 +35,15 @@ const playRound = (player, computer) => {
     return message;
 }
 
-console.log(playRound("ROCK", computerChoice()));
-console.log(playRound("PAPER", computerChoice()));
-console.log(playRound("SCISSORS", computerChoice()));
+const game = () => {
+    let playerChoice = "";
+
+    while (playerChoice !== "ROCK" && playerChoice !== "PAPER" && playerChoice !== "SCISSORS")
+    {
+        playerChoice = prompt("Type Rock, Paper or Scissors:").toUpperCase();
+    }
+
+    console.log(playRound(playerChoice, computerChoice()));
+}
+
+game();
