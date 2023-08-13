@@ -1,2 +1,2 @@
 # odin-rock-paper-scissors
-The odin poject - first js project
+A basic console rock paper scissors game using JavaScript.
