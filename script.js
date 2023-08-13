@@ -37,13 +37,40 @@ const playRound = (player, computer) => {
 
 const game = () => {
     let playerChoice = "";
+    let rounds = 5;
+    let playerScore = 0;
+    let computerScore = 0;
+    let result = "";
 
-    while (playerChoice !== "ROCK" && playerChoice !== "PAPER" && playerChoice !== "SCISSORS")
-    {
-        playerChoice = prompt("Type Rock, Paper or Scissors:").toUpperCase();
+    for(i = 0; i < rounds; i++){
+        while (playerChoice !== "ROCK" && playerChoice !== "PAPER" && playerChoice !== "SCISSORS")
+        {
+            playerChoice = prompt("Type Rock, Paper or Scissors:").toUpperCase();
+        }
+
+        result = playRound(playerChoice, computerChoice());
+
+        if(result.includes("Win")){
+            playerScore++;
+        }
+
+        if(result.includes("Lose")){
+            computerScore++;
+        }
+
+        console.log(`ROUND #${(i + 1)}: ${result}`);
+        playerChoice = "";
     }
 
-    console.log(playRound(playerChoice, computerChoice()));
+    if(playerScore === computerScore){
+        console.log("It's a Draw!");
+    }
+    else if(playerScore > computerScore){
+        console.log(`You Win! You Score ${playerScore} vs ${computerScore} of ${rounds}`);
+    }
+    else {
+        console.log(`You Lose! You Score ${playerScore} vs ${computerScore} of ${rounds}`);
+    }
 }
 
 game();
