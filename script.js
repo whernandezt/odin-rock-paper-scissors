@@ -41,7 +41,7 @@ const game = () => {
     let playerScore = 0;
     let computerScore = 0;
     let result = "";
-
+    
     for(i = 0; i < rounds; i++){
         while (playerChoice !== "ROCK" && playerChoice !== "PAPER" && playerChoice !== "SCISSORS")
         {
@@ -73,4 +73,4 @@ const game = () => {
     }
 }
 
-game();
+//game();
