@@ -6,7 +6,7 @@ const buttons = document.querySelectorAll('.btnOption');
 buttons.forEach(btn => btn.addEventListener('click', () => {
     playRound(btn.textContent.toUpperCase(),computerChoice());
     const score = document.querySelector('.score');
-    score.textContent = `Score: ${result[0]}/${rounds}`
+    score.textContent = `Score: ${result[0]} vs ${result[1]}`
     console.log(result);
     if(result[0] === 5 || result[1] === 5)
     {
@@ -15,8 +15,23 @@ buttons.forEach(btn => btn.addEventListener('click', () => {
         winner.textContent = result[0] === 5 ? 'Congratulations! You win.':'Sorry! You lose.';
         const divResul = document.querySelector('#result');
         divResul.appendChild(winner);
+
+        const options = document.querySelector('.options');
+        options.style.display = 'none';
+
+        const playAgain = document.createElement('button');
+        playAgain.classList.add('btn','playAgain');
+        playAgain.textContent = 'Play again';
+
+        playAgain.addEventListener('click', () => {
+            location.reload();
+        });
+
+        divResul.appendChild(playAgain);
+
     }
 }));
+
 
 const playRound = (player, computer) => {
     rounds++;
